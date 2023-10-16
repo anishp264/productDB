@@ -13,7 +13,7 @@ jobs:
               with:
                 package_id: ProductDB
                 version: "v001"
-                base_path: "/"
+                base_path: "migrations"
                 files: "**/*"
                 output_folder: packaged
             - name: Upload artifacts to Github
