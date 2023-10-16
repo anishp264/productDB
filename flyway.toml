@@ -1,0 +1,17 @@
+databaseType = "PostgreSql"
+name = "productDB"
+id = "e19d5ae8-fdfb-446e-a41b-b6b11bf6b251"
+
+[flywayDesktop]
+developmentEnvironment = "development"
+shadowEnvironment = "shadow"
+schemaModel = "./schema-model"
+
+[redgateCompare]
+filterFile = "filter.rgf"
+
+[flyway]
+mixed = true
+outOfOrder = true
+locations = ["filesystem:migrations"]
+validateMigrationNaming = true
