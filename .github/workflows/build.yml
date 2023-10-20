@@ -10,8 +10,7 @@ jobs:
             - name: Set Release Number
               id: ReleaseNumber
               run: |
-                $versionNumber = "1.0.$GITHUB_RUN_NUMBER"
-                Write-Host "Setting the Output Variable VERSION to $versionNumber"
+                $versionNumber: "1.0.$GITHUB_RUN_NUMBER"
                 Write-Output "APP_VERSION=$versionNumber" >> $Env:GITHUB_OUTPUT
             - name: Build and Test
               run: |
