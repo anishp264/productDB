@@ -10,18 +10,13 @@ jobs:
             - name: Set Release Number
               id: ReleaseNumber
               run: |
-                echo "versionNumber=$GITHUB_RUN_NUMBER" >> "$GITHUB_OUTPUT"
-            - name: Build and Test
-              run: |
-                # Your build commands here
-                echo "Building version => 1.0.$GITHUB_RUN_NUMBER"
-                # Run your build commands and tests
+                echo "buildNumber=$GITHUB_RUN_NUMBER" >> "$GITHUB_OUTPUT"
             - name: package database
               id: "database_package"
               uses: OctopusDeploy/create-zip-package-action@v3
               with:
                 package_id: ProductDB
-                version: 1.0.${{ steps.ReleaseNumber.outputs.versionNumber }}
+                version: 1.0.${{ steps.ReleaseNumber.outputs.buildNumber }}
                 base_path: "db"
                 files: "**/*"
                 output_folder: packaged
