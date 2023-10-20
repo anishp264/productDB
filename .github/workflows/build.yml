@@ -10,7 +10,7 @@ jobs:
             - name: Build and Test
               run: |
                 # Your build commands here
-                echo "Building version $GITHUB_RUN_NUMBER"
+                echo "Building version => 1.0.$GITHUB_RUN_NUMBER"
                 # Run your build commands and tests
             - name: package database
               id: "database_package"
