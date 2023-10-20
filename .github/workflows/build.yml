@@ -10,8 +10,7 @@ jobs:
             - name: Set Release Number
               id: ReleaseNumber
               run: |
-                $versionNumber= "${GITHUB_RUN_NUMBER}"
-                echo "Building version => 1.0.$versionNumber"
+                echo "versionNumber=${GITHUB_RUN_NUMBER}" >> "$GITHUB_OUTPUT"
             - name: Build and Test
               run: |
                 # Your build commands here
