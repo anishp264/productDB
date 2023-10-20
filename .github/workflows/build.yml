@@ -17,7 +17,7 @@ jobs:
               uses: OctopusDeploy/create-zip-package-action@v3
               with:
                 package_id: ProductDB
-                version: "v001"
+                version: 1.0.$GITHUB_RUN_NUMBER
                 base_path: "db"
                 files: "**/*"
                 output_folder: packaged
