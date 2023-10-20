@@ -7,6 +7,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
+            - name: Set Release Number
+              id: ReleaseNumber
+              run: |
+                $versionNumber = "1.0.${GITHUB_RUN_NUMBER}"
+                Write-Host "Setting the Output Variable VERSION to $versionNumber"
+                Write-Output "APP_VERSION=$versionNumber" >> $Env:GITHUB_OUTPUT
             - name: Build and Test
               run: |
                 # Your build commands here
@@ -17,7 +23,7 @@ jobs:
               uses: OctopusDeploy/create-zip-package-action@v3
               with:
                 package_id: ProductDB
-                version: 1.0.$GITHUB_RUN_NUMBER
+                version: 1.0.${{ steps.ReleaseNumber.outputs.APP_VERSION }}
                 base_path: "db"
                 files: "**/*"
                 output_folder: packaged
